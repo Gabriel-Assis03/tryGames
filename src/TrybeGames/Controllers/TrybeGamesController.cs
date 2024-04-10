@@ -125,6 +125,9 @@ public class TrybeGamesController
         string name = Console.ReadLine();
         Player newPlayer = new Player { Id = database.Players.Count + 1, Name = name};
         database.Players.Add(newPlayer);
+        var gamesType = from game in database.Games
+                        select game.GameType;
+        Console.WriteLine(string.Join(", ", gamesType));
     }
 
     // 2. Crie a funcionalidade de adicionar um novo estúdio de jogos ao banco de dados
