@@ -144,7 +144,7 @@ public class TrybeGamesController
         Console.WriteLine("Digite o nome do novo jogo:");
         string game = Console.ReadLine();
         Console.WriteLine("Digite a data de lançamento do novo jogo:");
-        DateTime date = DateTime.Parse(Console.ReadLine());
+        DateTime date = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
         Console.WriteLine("Digite o tipo do novo jogo:");
         string type = Console.ReadLine();
         Game newGame = new Game { Id = database.Games.Count + 1, Name = game, ReleaseDate = date, GameType = (GameType)int.Parse(type)};
